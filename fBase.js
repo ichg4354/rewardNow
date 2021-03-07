@@ -1,12 +1,10 @@
-import * as firebase from "firebase";
 import dotenv from "dotenv";
-
-dotenv.config();
-
+import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
 
+dotenv.config();
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAL0Iw9c7DkHXxhK6zf6phAKDvuRd9JQWo",
