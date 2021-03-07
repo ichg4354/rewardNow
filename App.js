@@ -20,7 +20,7 @@ const casheImages = (images) =>
 const casheFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const loadAssets = () => {
     const images = casheImages([
