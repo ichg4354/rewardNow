@@ -26,7 +26,7 @@ const Join = () => {
         resetPassword();
       }
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 

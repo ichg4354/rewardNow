@@ -1,12 +1,13 @@
 import { Asset } from "expo-asset";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import Stack from "./Navigation/Stack";
+import { authService } from "./fBase";
 
 const casheImages = (images) =>
   images.map((image) => {
@@ -20,7 +21,10 @@ const casheImages = (images) =>
 const casheFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(undefined);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [init, setInit] = useState(false);
+  const [prefetchState, setPrefetchState] = useState(false);
 
   const loadAssets = () => {
     const images = casheImages([
@@ -30,18 +34,33 @@ const App = () => {
     return Promise.all([...images, ...fonts]);
   };
 
-  const onFinish = () => setIsLoading(false);
+  const onFinish = () => setPrefetchState(true);
 
-  return isLoading ? (
+  useEffect(
+    () =>
+      authService.onAuthStateChanged((user) => {
+        console.log(user);
+        if (user) {
+          setLoggedIn(true);
+          setUser(user);
+        } else {
+          setLoggedIn(false);
+        }
+        setInit(true);
+      }),
+    []
+  );
+
+  return init && prefetchState ? (
+    <NavigationContainer>
+      <Stack loggedIn={loggedIn} user={user} />
+    </NavigationContainer>
+  ) : (
     <AppLoading
       startAsync={loadAssets}
       onFinish={onFinish}
       onError={console.error}
     />
-  ) : (
-    <NavigationContainer>
-      <Stack />
-    </NavigationContainer>
   );
 };
 
