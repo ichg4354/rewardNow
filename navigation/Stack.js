@@ -7,7 +7,7 @@ import Join from "../Components/Join";
 
 const Stack = createStackNavigator();
 
-export default () => {
+export default ({ user, loggedIn }) => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Tab" component={Tab} />

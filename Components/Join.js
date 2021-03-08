@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
-import { authService } from "../fBase";
+import { authService, storeService } from "../fBase";
 
 const Join = () => {
   const [name, setName] = useState(undefined);
@@ -20,7 +20,8 @@ const Join = () => {
           email,
           password
         );
-        setUserId(data.user.uid);
+        console.log(data.user.uid);
+        createUserData(data.user.uid);
       } else {
         alert("password incorrect");
         resetPassword();
@@ -28,6 +29,18 @@ const Join = () => {
     } catch (error) {
       alert(error);
     }
+  };
+
+  const createUserData = async (userId) => {
+    console.log(userId);
+    await storeService.collection("users").doc(userId).set({
+      userId: userId,
+      name: name,
+      email: email,
+      password: password,
+      phoneNumber: phoneNumber,
+      college: college,
+    });
   };
 
   const resetPassword = () => {
