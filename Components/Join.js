@@ -14,14 +14,30 @@ const Join = ({ navigation }) => {
 
   const onJoinBtnPress = async () => {
     try {
-      if (password === password2 && name && email && phoneNumber && college) {
-        const data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
-        console.log(data.user.uid);
-        createUserData(data.user.uid);
-        navigation.navigate("Home");
+      if (password === password2) {
+        if (name) {
+          if (email) {
+            if (phoneNumber) {
+              if (college) {
+                const data = await authService.createUserWithEmailAndPassword(
+                  email,
+                  password
+                );
+                console.log(data.user.uid);
+                createUserData(data.user.uid);
+                navigation.navigate("Home");
+              } else {
+                alert("Collge Empty");
+              }
+            } else {
+              alert("Phone Number Empty");
+            }
+          } else {
+            alert("Email Empty");
+          }
+        } else {
+          alert("Name Empty");
+        }
       } else {
         alert("password incorrect");
         resetPassword();
@@ -69,26 +85,31 @@ const Join = ({ navigation }) => {
         placeholder={"Name"}
         onChange={(e) => setName(e.target.value)}
         value={name}
+        required={true}
       />
       <TextInput
         placeholder={"Email"}
         onChange={(e) => setEmail(e.target.value)}
         value={email}
+        required={true}
       />
       <TextInput
         placeholder={"Password"}
         onChange={(e) => setPassword(e.target.value)}
         value={password}
+        required={true}
       />
       <TextInput
         placeholder={"Password2"}
         onChange={(e) => setPassword2(e.target.value)}
         value={password2}
+        required={true}
       />
       <TextInput
         placeholder={"PhoneNumber"}
         onChange={(e) => setPhoneNumber(e.target.value)}
         value={phoneNumber}
+        required={true}
       />
       <DropDownPicker
         items={fakeItems}
@@ -101,6 +122,7 @@ const Join = ({ navigation }) => {
         dropDownStyle={{ backgroundColor: "#fafafa" }}
         onChangeItem={(e) => setCollege(e.value)}
         placeholder="대학 이름을 골라주세요~"
+        required={true}
       />
       <Button title={"Join"} onPress={onJoinBtnPress} />
     </View>
