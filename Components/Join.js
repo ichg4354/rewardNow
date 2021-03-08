@@ -4,24 +4,24 @@ import { TextInput } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
 import { authService, storeService } from "../fBase";
 
-const Join = () => {
+const Join = ({ navigation }) => {
   const [name, setName] = useState(undefined);
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [password2, setPassword2] = useState(undefined);
   const [phoneNumber, setPhoneNumber] = useState(undefined);
   const [college, setCollege] = useState(undefined);
-  const [userId, setUserId] = useState(undefined);
 
   const onJoinBtnPress = async () => {
     try {
-      if (password === password2) {
+      if (password === password2 && name && email && phoneNumber && college) {
         const data = await authService.createUserWithEmailAndPassword(
           email,
           password
         );
         console.log(data.user.uid);
         createUserData(data.user.uid);
+        navigation.navigate("Home");
       } else {
         alert("password incorrect");
         resetPassword();
