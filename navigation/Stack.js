@@ -10,7 +10,12 @@ const Stack = createStackNavigator();
 export default ({ user, loggedIn }) => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Tab" component={Tab} />
+      <Stack.Screen
+        name="Tab"
+        component={Tab}
+        user={user}
+        loggedIn={loggedIn}
+      />
       <Stack.Screen name="Detail" component={Detail} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Join" component={Join} />

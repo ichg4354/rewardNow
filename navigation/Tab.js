@@ -4,10 +4,15 @@ import Home from "../Components/Home";
 
 const Tab = createBottomTabNavigator();
 
-export default () => {
+export default ({ user, loggedIn }) => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        user={user}
+        loggedIn={loggedIn}
+      />
     </Tab.Navigator>
   );
 };

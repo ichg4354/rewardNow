@@ -1,7 +1,12 @@
 import React from "react";
 import { Button, View } from "react-native";
+import { authService } from "../fBase";
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, user, loggedIn }) => {
+  const onLogoutBtnClick = async () => {
+    await authService.signOut();
+  };
+  console.log(user);
   return (
     <View>
       <Button
@@ -13,6 +18,7 @@ const Home = ({ navigation }) => {
         title="Go to Login"
         onPress={() => navigation.navigate("Login")}
       />
+      <Button title={"LogOut"} onPress={onLogoutBtnClick} />
     </View>
   );
 };

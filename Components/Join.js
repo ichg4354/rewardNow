@@ -125,6 +125,7 @@ const Join = ({ navigation }) => {
         required={true}
       />
       <Button title={"Join"} onPress={onJoinBtnPress} />
+      
     </View>
   );
 };
