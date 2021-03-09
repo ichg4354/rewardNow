@@ -7,12 +7,9 @@ const Tab = createBottomTabNavigator();
 export default ({ user, loggedIn }) => {
   return (
     <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        user={user}
-        loggedIn={loggedIn}
-      />
+      <Tab.Screen name="Home">
+        {() => <Home user={user} loggedIn={loggedIn} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };
