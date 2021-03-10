@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { storeService } from "../fBase";
+import CollegeBox from "./CollegeBox";
 
 const getCollegeData = () => {
   const collegeList = storeService
@@ -18,7 +19,9 @@ const CollegeContainer = () => {
       let data = snap.docs.map((each) => each.data());
       setColleges(data);
     });
-  return colleges.map((each) => <h1 key={each.college}>{each.college}</h1>);
+  return colleges.map((each) => (
+    <CollegeBox key={each.id} college={each.college} likes={each.likes} />
+  ));
 };
 
 export default CollegeContainer;
