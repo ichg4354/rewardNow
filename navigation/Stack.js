@@ -13,7 +13,9 @@ export default ({ user, loggedIn }) => {
       <Stack.Screen name="Tab">
         {() => <Tab user={user} loggedIn={loggedIn} />}
       </Stack.Screen>
-      <Stack.Screen name="Detail">{() => <Detail user={user} />}</Stack.Screen>
+      <Stack.Screen name="Detail">
+        {loggedIn ? () => <Detail user={user} /> : () => <Join />}
+      </Stack.Screen>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Join" component={Join} />
     </Stack.Navigator>
