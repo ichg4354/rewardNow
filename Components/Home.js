@@ -12,11 +12,6 @@ const Home = ({ user, loggedIn }) => {
   return (
     <View>
       <CollegeContainer />
-      <Button
-        title="Go to Detail"
-        onPress={() => navigation.navigate("Detail")}
-      />
-
       {loggedIn ? (
         <></>
       ) : (

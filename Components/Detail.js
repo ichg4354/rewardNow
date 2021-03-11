@@ -1,8 +1,8 @@
 import React from "react";
 
-const Detail = ({ user }) => {
-  console.log(user);
-  return <h1>{user.email.slice(0, 10)}</h1>;
+const Detail = ({ route }) => {
+  const collegeData = route.params;
+  return <h1>{collegeData.college}</h1>;
 };
 
 export default Detail;

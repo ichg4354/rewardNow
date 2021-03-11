@@ -1,9 +1,16 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { View, Button, Text } from "react-native";
 
 const CollegeBox = ({ college, likes, comments, id }) => {
+  const navigation = useNavigation();
   const onCollegeBoxClick = () => {
-    console.log(id);
+    navigation.navigate("Detail", {
+      id: id,
+      comments: comments,
+      college: college,
+      likes: likes,
+    });
   };
   return (
     <View onClick={onCollegeBoxClick}>
