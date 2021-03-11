@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { storeService } from "../fBase";
 import CollegeBox from "./CollegeBox";
 
-const CollegeContainer = () => {
+const CollegeContainer = ({ userId, loggedIn }) => {
   const [colleges, setColleges] = useState([]);
   storeService
     .collection("colleges")
@@ -17,6 +17,8 @@ const CollegeContainer = () => {
       college={each.data().college}
       likes={each.data().likes}
       id={each.id}
+      userId={userId}
+      loggedIn={loggedIn}
     />
   ));
 };
