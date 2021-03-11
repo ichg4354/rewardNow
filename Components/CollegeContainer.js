@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import { storeService } from "../fBase";
 import CollegeBox from "./CollegeBox";
 
-const getCollegeData = () => {
-  const collegeList = storeService
-    .collection("colleges")
-    .orderBy("likes", "desc")
-    .onSnapshot((doc) => doc.map((each) => collegeList.push(each.data())));
-  return collegeList;
-};
-
 const CollegeContainer = () => {
   const [colleges, setColleges] = useState([]);
-  const collegeList = storeService
+  storeService
     .collection("colleges")
     .orderBy("likes", "desc")
     .onSnapshot((snap) => {
-      let data = snap.docs.map((each) => each.data());
+      let data = snap.docs.map((each) => each);
       setColleges(data);
     });
-  return colleges.map((each) => (
-    <CollegeBox key={each.id} college={each.college} likes={each.likes} />
+  return colleges.map((each, key) => (
+    <CollegeBox
+      key={key}
+      college={each.data().college}
+      likes={each.data().likes}
+      id={each.id}
+    />
   ));
 };
 
