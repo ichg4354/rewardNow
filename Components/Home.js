@@ -11,7 +11,7 @@ const Home = ({ user, loggedIn }) => {
   };
   return (
     <View>
-      <CollegeContainer userId={user.uid} loggedIn={loggedIn} />
+      <CollegeContainer userId={user?.uid} loggedIn={loggedIn} />
       {loggedIn ? (
         <></>
       ) : (
