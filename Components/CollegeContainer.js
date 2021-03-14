@@ -8,14 +8,18 @@ const CollegeContainer = ({ userId, loggedIn }) => {
     .collection("colleges")
     .orderBy("likes", "desc")
     .onSnapshot((snap) => {
-      let data = snap.docs.map((each) => each);
+      let data = snap.docs.map((each) => ({
+        college: each.data().college,
+        likes: each.data().likes,
+        id: each.id,
+      }));
       setColleges(data);
     });
   return colleges.map((each, key) => (
     <CollegeBox
       key={key}
-      college={each.data().college}
-      likes={each.data().likes}
+      college={each.college}
+      likes={each.likes}
       id={each.id}
       userId={userId}
       loggedIn={loggedIn}

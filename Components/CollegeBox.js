@@ -18,11 +18,16 @@ const CollegeBox = ({ college, likes, comments, id, user, loggedIn }) => {
       navigation.navigate("Join");
     }
   };
-  const onCollegeLikeBtnClick = async () => {
-    await storeService
-      .collection("colleges")
-      .doc(id)
-      .update({ likes: likes + 1 });
+  const onCollegeLikeBtnClick = () => {
+    try {
+      storeService
+        .collection("colleges")
+        .doc(id)
+        .update({ likes: likes + 1 });
+    } catch (error) {
+      console.log(error);
+    }
+
     //내 user db속 liked list 에서 대학id가 없으면
     //1. 대학db에 좋아요 + 1
     //2. 대학 db에 내 id 넣기 (부차적)
