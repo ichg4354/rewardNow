@@ -21,3 +21,5 @@ firebase.initializeApp(firebaseConfig);
 export const authService = firebase.auth();
 
 export const storeService = firebase.firestore();
+
+export const ArrayTool = firebase.firestore.FieldValue;

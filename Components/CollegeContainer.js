@@ -4,6 +4,7 @@ import CollegeBox from "./CollegeBox";
 
 const CollegeContainer = ({ userId, loggedIn }) => {
   const [colleges, setColleges] = useState([]);
+  const [likedCollege, setLikedCollege] = useState(likedCollege);
 
   const getData = () => {
     storeService
@@ -19,8 +20,21 @@ const CollegeContainer = ({ userId, loggedIn }) => {
       });
   };
 
+  const getUserData = async () => {
+    if (loggedIn) {
+      storeService
+        .collection("users")
+        .doc(userId)
+        .onSnapshot((snap) => {
+          setLikedCollege(snap.data().likedCollege);
+        });
+    }
+  };
+
+
   useEffect(() => {
     getData();
+    getUserData();
   }, []);
 
   return colleges.map((each, key) => (
@@ -28,9 +42,11 @@ const CollegeContainer = ({ userId, loggedIn }) => {
       key={key}
       college={each.college}
       likes={each.likes}
-      id={each.id}
+      collegeId={each.id}
       userId={userId}
       loggedIn={loggedIn}
+      likedCollege={likedCollege}
+      setLikedCollege={setLikedCollege}
     />
   ));
 };

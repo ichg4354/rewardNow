@@ -56,6 +56,7 @@ const Join = ({ navigation }) => {
       password: password,
       phoneNumber: phoneNumber,
       college: college,
+      likedCollege: [],
     });
   };
 
@@ -125,7 +126,6 @@ const Join = ({ navigation }) => {
         required={true}
       />
       <Button title={"Join"} onPress={onJoinBtnPress} />
-      
     </View>
   );
 };
