@@ -34,7 +34,18 @@ const CollegeBox = ({
       console.log(collegeId);
       try {
         if (likedCollege.includes(collegeId)) {
-          alert("Already Liked");
+          await storeService
+            .collection("colleges")
+            .doc(collegeId)
+            .update({ likes: likes - 1 });
+
+          await storeService
+            .collection("users")
+            .doc(userId)
+            .update({
+              likedCollege: ArrayTool.arrayRemove(collegeId),
+            });
+          
         } else {
           await storeService
             .collection("colleges")
