@@ -34,29 +34,44 @@ const CollegeBox = ({
       console.log(collegeId);
       try {
         if (likedCollege.includes(collegeId)) {
+          //1. 대학db에 좋아요 -1
           await storeService
             .collection("colleges")
             .doc(collegeId)
             .update({ likes: likes - 1 });
-
+          //2. user db에서 대학 id 빼기
           await storeService
             .collection("users")
             .doc(userId)
             .update({
               likedCollege: ArrayTool.arrayRemove(collegeId),
             });
-          
+          //3.대학 db에 내 id 빼기 (부차적)
+          await storeService
+            .collection("colleges")
+            .doc(collegeId)
+            .update({
+              likedUser: ArrayTool.arrayRemove(userId),
+            });
         } else {
+          //1. 대학db에 좋아요 + 1
           await storeService
             .collection("colleges")
             .doc(collegeId)
             .update({ likes: likes + 1 });
-
+          //2. user db에 대학id 넣기
           await storeService
             .collection("users")
             .doc(userId)
             .update({
               likedCollege: ArrayTool.arrayUnion(collegeId),
+            });
+          //3. 대학 db에 내 id 넣기 (부차적)
+          await storeService
+            .collection("colleges")
+            .doc(collegeId)
+            .update({
+              likedUser: ArrayTool.arrayUnion(userId),
             });
         }
       } catch (error) {
