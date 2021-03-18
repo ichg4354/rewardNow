@@ -85,6 +85,7 @@ const CollegeBox = ({
     //1. 대학db에 좋아요 + 1
     //2. 대학 db에 내 id 넣기 (부차적)
     //3. user db에 대학id 넣기
+
     //내 user db속 liked list 에서 대학 id가 있으면
     //1. 대학db에 좋아요 -1
     //2.대학 db에 내 id 빼기 (부차적)

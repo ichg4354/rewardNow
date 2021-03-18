@@ -4,7 +4,7 @@ import CollegeBox from "./CollegeBox";
 
 const CollegeContainer = ({ userId, loggedIn }) => {
   const [colleges, setColleges] = useState([]);
-  const [likedCollege, setLikedCollege] = useState(likedCollege);
+  const [likedCollege, setLikedCollege] = useState([]);
 
   const getData = () => {
     storeService
@@ -31,10 +31,9 @@ const CollegeContainer = ({ userId, loggedIn }) => {
     }
   };
 
-
   useEffect(() => {
-    getData();
     getUserData();
+    getData();
   }, []);
 
   return colleges.map((each, key) => (
