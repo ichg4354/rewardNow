@@ -23,7 +23,17 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
         });
       console.log("empty");
     } else {
-      storeService.collection("colleges").where()
+      storeService
+        .collection("colleges")
+        .where("college", "==", searchQuery)
+        .onSnapshot((snap) => {
+          let data = snap.docs.map((each) => ({
+            college: each.data().college,
+            likes: each.data().likes,
+            id: each.id,
+          }));
+          setColleges(data);
+        });
     }
   };
 
