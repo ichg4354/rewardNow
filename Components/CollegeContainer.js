@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useIsFocused } from "@react-navigation/core";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { storeService } from "../fBase";
 import CollegeBox from "./CollegeBox";
 
 const CollegeContainer = ({ userId, loggedIn }) => {
   const [colleges, setColleges] = useState([]);
   const [likedCollege, setLikedCollege] = useState([]);
+  const isFocused = useIsFocused();
 
   const getData = () => {
     storeService
@@ -34,7 +36,7 @@ const CollegeContainer = ({ userId, loggedIn }) => {
   useEffect(() => {
     getUserData();
     getData();
-  }, []);
+  }, [isFocused]);
 
   return colleges.map((each, key) => (
     <CollegeBox

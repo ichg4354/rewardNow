@@ -12,6 +12,7 @@ const Login = ({ navigation }) => {
         if (password) {
           await authService.signInWithEmailAndPassword(email, password);
           navigation.navigate("Home");
+          
         } else {
           alert("Email Empty");
         }
