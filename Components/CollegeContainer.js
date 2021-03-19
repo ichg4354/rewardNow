@@ -6,22 +6,25 @@ import CollegeBox from "./CollegeBox";
 const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   const [colleges, setColleges] = useState([]);
   const [likedCollege, setLikedCollege] = useState([]);
+  const [likedEvent, setLikedEvent] = useState([]);
+
   const isFocused = useIsFocused();
 
   const getData = async () => {
     if (searchQuery === "") {
-      storeService
+      let collegeList = [];
+      const data = await storeService
         .collection("colleges")
         .orderBy("likes", "desc")
-        .onSnapshot((snap) => {
-          console.log("THIS IS FROM EMPTY");
-          let collegeList = snap.docs.map((each) => ({
-            college: each.data().college,
-            likes: each.data().likes,
-            id: each.id,
-          }));
-          setColleges(collegeList);
-        });
+        .get();
+      data.forEach((each) =>
+        collegeList.push({
+          college: each.data().college,
+          likes: each.data().likes,
+          id: each.id,
+        })
+      );
+      setColleges(collegeList);
       console.log("empty");
     } else {
       let collegeList = [];
@@ -54,7 +57,7 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   useEffect(() => {
     getUserData();
     getData();
-  }, [isFocused, searchQuery]);
+  }, [isFocused, searchQuery, likedEvent]);
 
   return colleges ? (
     colleges?.map((each, key) => (
@@ -67,6 +70,7 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
         loggedIn={loggedIn}
         likedCollege={likedCollege}
         setLikedCollege={setLikedCollege}
+        setLikedEvent={setLikedEvent}
       />
     ))
   ) : (

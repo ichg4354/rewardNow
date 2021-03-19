@@ -11,6 +11,7 @@ const CollegeBox = ({
   userId,
   loggedIn,
   likedCollege,
+  setLikedEvent,
 }) => {
   const navigation = useNavigation();
 
@@ -73,6 +74,7 @@ const CollegeBox = ({
               likedUser: ArrayTool.arrayUnion(userId),
             });
         }
+        setLikedEvent(["blah"]);
       } catch (error) {
         console.log(error);
       }
