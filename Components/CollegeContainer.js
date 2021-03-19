@@ -8,32 +8,35 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   const [likedCollege, setLikedCollege] = useState([]);
   const isFocused = useIsFocused();
 
-  const getData = () => {
+  const getData = async () => {
     if (searchQuery === "") {
       storeService
         .collection("colleges")
         .orderBy("likes", "desc")
         .onSnapshot((snap) => {
-          let data = snap.docs.map((each) => ({
+          console.log("THIS IS FROM EMPTY");
+          let collegeList = snap.docs.map((each) => ({
             college: each.data().college,
             likes: each.data().likes,
             id: each.id,
           }));
-          setColleges(data);
+          setColleges(collegeList);
         });
       console.log("empty");
     } else {
-      storeService
+      let collegeList = [];
+      const data = await storeService
         .collection("colleges")
         .where("college", "==", searchQuery)
-        .onSnapshot((snap) => {
-          let data = snap.docs.map((each) => ({
-            college: each.data().college,
-            likes: each.data().likes,
-            id: each.id,
-          }));
-          setColleges(data);
-        });
+        .get();
+      data.forEach((each) =>
+        collegeList.push({
+          college: each.data().college,
+          likes: each.data().likes,
+          id: each.id,
+        })
+      );
+      setColleges(collegeList);
     }
   };
 

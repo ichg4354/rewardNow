@@ -11,7 +11,6 @@ const CollegeBox = ({
   userId,
   loggedIn,
   likedCollege,
-  setLikedCollege,
 }) => {
   const navigation = useNavigation();
 

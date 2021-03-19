@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import { Button, View } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { authService, storeService } from "../fBase";
 import CollegeContainer from "./CollegeContainer";
 
@@ -23,7 +23,7 @@ const Home = ({ user, loggedIn }) => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <TextInput
         placeholder={"Search"}
         onChangeText={(text) => onSearchInputChange(text)}
@@ -35,6 +35,7 @@ const Home = ({ user, loggedIn }) => {
         userId={user?.uid}
         loggedIn={loggedIn}
         searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
       {loggedIn ? (
         <></>
@@ -52,7 +53,7 @@ const Home = ({ user, loggedIn }) => {
           onPress={() => navigation.navigate("Login")}
         />
       )}
-    </View>
+    </ScrollView>
   );
 };
 
