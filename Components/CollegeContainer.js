@@ -11,9 +11,10 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   const isFocused = useIsFocused();
 
   const getData = async () => {
+    let collegeList = [];
+    let data;
     if (searchQuery === "") {
-      let collegeList = [];
-      const data = await storeService
+      data = await storeService
         .collection("colleges")
         .orderBy("likes", "desc")
         .get();
@@ -24,11 +25,9 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
           id: each.id,
         })
       );
-      setColleges(collegeList);
       console.log("empty");
     } else {
-      let collegeList = [];
-      const data = await storeService
+      data = await storeService
         .collection("colleges")
         .where("college", "==", searchQuery)
         .get();
@@ -39,8 +38,8 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
           id: each.id,
         })
       );
-      setColleges(collegeList);
     }
+    setColleges(collegeList);
   };
 
   const getUserData = async () => {
@@ -57,7 +56,7 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   useEffect(() => {
     getUserData();
     getData();
-  }, [isFocused, searchQuery, likedEvent]);
+  }, [likedEvent, isFocused, searchQuery]);
 
   return colleges ? (
     colleges?.map((each, key) => (

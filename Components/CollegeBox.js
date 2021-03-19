@@ -34,6 +34,7 @@ const CollegeBox = ({
       console.log(collegeId);
       try {
         if (likedCollege.includes(collegeId)) {
+          alert("좋아요 취소");
           //1. 대학db에 좋아요 -1
           await storeService
             .collection("colleges")
@@ -54,6 +55,7 @@ const CollegeBox = ({
               likedUser: ArrayTool.arrayRemove(userId),
             });
         } else {
+          alert("좋아요 완료!");
           //1. 대학db에 좋아요 + 1
           await storeService
             .collection("colleges")
