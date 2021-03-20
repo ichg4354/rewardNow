@@ -59,7 +59,7 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
   }, [likedEvent, isFocused, searchQuery]);
 
   return colleges ? (
-    colleges?.map((each, key) => (
+    colleges.map((each, key) => (
       <CollegeBox
         key={key}
         college={each.college}

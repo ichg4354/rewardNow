@@ -7,11 +7,6 @@ import CollegeContainer from "./CollegeContainer";
 
 const Home = ({ user, loggedIn }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const navigation = useNavigation();
-
-  const onLogoutBtnClick = async () => {
-    await authService.signOut();
-  };
 
   const onSearchInputChange = (text) => {
     setSearchQuery(text);
@@ -37,22 +32,6 @@ const Home = ({ user, loggedIn }) => {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      {loggedIn ? (
-        <></>
-      ) : (
-        <Button
-          title="Go to Join"
-          onPress={() => navigation.navigate("Join")}
-        />
-      )}
-      {loggedIn ? (
-        <Button title={"LogOut"} onPress={onLogoutBtnClick} />
-      ) : (
-        <Button
-          title="Go to Login"
-          onPress={() => navigation.navigate("Login")}
-        />
-      )}
     </ScrollView>
   );
 };
