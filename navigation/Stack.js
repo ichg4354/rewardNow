@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 export default ({ user, loggedIn }) => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Tab">
+      <Stack.Screen name="D-Day 4" options={{ headerShown: false }}>
         {() => <Tab user={user} loggedIn={loggedIn} />}
       </Stack.Screen>
       <Stack.Screen name="Detail" component={Detail}></Stack.Screen>

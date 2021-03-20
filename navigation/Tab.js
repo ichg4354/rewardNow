@@ -5,10 +5,13 @@ import Profile from "../Components/Profile";
 import AboutUs from "../Components/AboutUs";
 import Reward from "../Components/Reward";
 import Icon from "react-native-vector-icons/Ionicons";
+import Join from "../Components/Join";
+import { useNavigation } from "@react-navigation/core";
 
 const Tab = createBottomTabNavigator();
 
 export default ({ user, loggedIn }) => {
+  const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -22,7 +25,7 @@ export default ({ user, loggedIn }) => {
           } else if (route.name === "Profile") {
             iconName = focused ? "person" : "person-outline";
           } else {
-            iconName = focused ? "settings" : "settings-outline";
+            iconName = focused ? "business" : "business-outline";
           }
           // You can return any component that you like here!
           return <Icon name={iconName} size={size} color={color} />;
