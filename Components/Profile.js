@@ -12,7 +12,7 @@ const Profile = ({ user, loggedIn }) => {
 
   return (
     <View>
-      {loggedIn ? <Text>{user.email}님 안녕하세요~</Text> : <></>}
+      {loggedIn ? <Text>{user?.email}님 안녕하세요~</Text> : <></>}
       {loggedIn ? (
         <></>
       ) : (

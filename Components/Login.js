@@ -25,13 +25,13 @@ const Login = ({ navigation }) => {
 
   return (
     <View>
-      <TextInput
+      <input
         placeholder={"Email"}
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         required={true}
       />
-      <TextInput
+      <input
         placeholder={"Password"}
         onChange={(e) => setPassword(e.target.value)}
         value={password}

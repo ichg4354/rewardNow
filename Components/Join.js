@@ -82,31 +82,31 @@ const Join = ({ navigation }) => {
   ];
   return (
     <View>
-      <TextInput
+      <input
         placeholder={"Name"}
         onChange={(e) => setName(e.target.value)}
         value={name}
         required={true}
       />
-      <TextInput
+      <input
         placeholder={"Email"}
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         required={true}
       />
-      <TextInput
+      <input
         placeholder={"Password"}
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         required={true}
       />
-      <TextInput
+      <input
         placeholder={"Password2"}
         onChange={(e) => setPassword2(e.target.value)}
         value={password2}
         required={true}
       />
-      <TextInput
+      <input
         placeholder={"PhoneNumber"}
         onChange={(e) => setPhoneNumber(e.target.value)}
         value={phoneNumber}

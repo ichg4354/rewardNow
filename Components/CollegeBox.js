@@ -96,7 +96,7 @@ const CollegeBox = ({
   };
 
   return (
-    <View onClick={onCollegeBoxClick}>
+    <View>
       <h1>{college}</h1>
       <h3>{likes} Likes</h3>
       <Button title={"👍"} onPress={onCollegeLikeBtnClick}></Button>

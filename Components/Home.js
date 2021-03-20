@@ -19,12 +19,11 @@ const Home = ({ user, loggedIn }) => {
 
   return (
     <ScrollView>
-      <TextInput
+      <input
         placeholder={"Search"}
-        onChangeText={(text) => onSearchInputChange(text)}
-        onContentSizeChange={(event) => console.log(event)}
         required={true}
         value={searchQuery}
+        onChange={(e) => onSearchInputChange(e.target.value)}
       />
       <CollegeContainer
         userId={user?.uid}
