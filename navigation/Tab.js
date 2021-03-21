@@ -32,7 +32,7 @@ export default ({ user, loggedIn }) => {
         },
       })}
       tabBarOptions={{
-        activeTintColor: "black",
+        activeTintColor: "lightblue",
         inactiveTintColor: "gray",
       }}
     >

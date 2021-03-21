@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import Stack from "./Navigation/Stack";
 import { authService } from "./fBase";
+import {} from "@expo-google-fonts/inter";
 
 const casheImages = (images) =>
   images.map((image) => {

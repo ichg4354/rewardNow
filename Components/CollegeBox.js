@@ -29,7 +29,8 @@ const LikeButton = styled.TouchableOpacity`
   background-color: lightblue;
   padding: 10px;
   border-radius: 10px;
-  opacity: 15px;
+  opacity: 15;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 `;
 
 const CollegeBox = ({
@@ -130,7 +131,7 @@ const CollegeBox = ({
       <Title>{college}</Title>
       <Likes>{likes} Likes</Likes>
       <LikeButton onPress={onCollegeLikeBtnClick} color={"#1E90FF"}>
-        👍
+        <Text>👍</Text>
       </LikeButton>
     </CollegeBoxContainer>
   );

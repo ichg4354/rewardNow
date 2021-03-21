@@ -2,6 +2,13 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { authService } from "../fBase";
 import { Button, View, Text } from "react-native";
+import styled from "styled-components/native";
+
+const ProfileContainer = styled.View`
+  padding: 30px;
+  justify-content: center;
+  margin-top: 30vh;
+`;
 
 const Profile = ({ user, loggedIn }) => {
   const navigation = useNavigation();
@@ -11,7 +18,7 @@ const Profile = ({ user, loggedIn }) => {
   };
 
   return (
-    <View>
+    <ProfileContainer>
       {loggedIn ? <Text>{user?.email}님 안녕하세요~</Text> : <></>}
       {loggedIn ? (
         <></>
@@ -29,7 +36,7 @@ const Profile = ({ user, loggedIn }) => {
           onPress={() => navigation.navigate("Login")}
         />
       )}
-    </View>
+    </ProfileContainer>
   );
 };
 
