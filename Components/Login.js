@@ -38,6 +38,7 @@ const Login = ({ navigation }) => {
         required={true}
       />
       <Button title={"Log In"} onPress={onLoginBtnClick} />
+      
     </View>
   );
 };

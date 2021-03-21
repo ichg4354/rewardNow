@@ -126,6 +126,10 @@ const Join = ({ navigation }) => {
         required={true}
       />
       <Button title={"Join"} onPress={onJoinBtnPress} />
+      <Button
+        title="Do you have a account?"
+        onPress={() => navigation.navigate("Login")}
+      />
     </View>
   );
 };
