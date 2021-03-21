@@ -4,7 +4,17 @@ import { Button, View } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { authService, storeService } from "../fBase";
 import CollegeContainer from "./CollegeContainer";
+import styled from "styled-components/native";
 
+const HomeScrollView = styled.ScrollView`
+  padding: 30px;
+`;
+
+const HomeSearchTextInput = styled.TextInput`
+  padding: 30px;
+  border: 1px solid gray;
+  border-radius: 15px;
+`;
 const Home = ({ user, loggedIn }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -18,9 +28,9 @@ const Home = ({ user, loggedIn }) => {
   };
 
   return (
-    <ScrollView>
-      <input
-        placeholder={"Search"}
+    <HomeScrollView>
+      <HomeSearchTextInput
+        placeholder={"검색하기"}
         required={true}
         value={searchQuery}
         onChange={(e) => onSearchInputChange(e.target.value)}
@@ -31,7 +41,7 @@ const Home = ({ user, loggedIn }) => {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-    </ScrollView>
+    </HomeScrollView>
   );
 };
 

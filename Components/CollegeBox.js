@@ -1,7 +1,36 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
-import { View, Button, Text } from "react-native";
+import { View, Button, Text, TouchableOpacity } from "react-native";
 import { ArrayTool, authService, storeService } from "../fBase";
+import styled from "styled-components/native";
+
+const CollegeBoxContainer = styled.View`
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+`;
+
+const Title = styled.Text`
+  font-size: 30px;
+  margin-bottom: 5px;
+`;
+
+const Likes = styled.Text`
+  font-size: 20px;
+  margin-bottom: 10px;
+`;
+
+const LikeButton = styled.TouchableOpacity`
+  align-items: center;
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 15px;
+`;
 
 const CollegeBox = ({
   college,
@@ -15,6 +44,7 @@ const CollegeBox = ({
 }) => {
   const navigation = useNavigation();
 
+  //Disabled
   const onCollegeBoxClick = () => {
     if (loggedIn) {
       navigation.navigate("Detail", {
@@ -96,11 +126,13 @@ const CollegeBox = ({
   };
 
   return (
-    <View>
-      <h1>{college}</h1>
-      <h3>{likes} Likes</h3>
-      <Button title={"👍"} onPress={onCollegeLikeBtnClick}></Button>
-    </View>
+    <CollegeBoxContainer>
+      <Title>{college}</Title>
+      <Likes>{likes} Likes</Likes>
+      <LikeButton onPress={onCollegeLikeBtnClick} color={"#1E90FF"}>
+        👍
+      </LikeButton>
+    </CollegeBoxContainer>
   );
 };
 
