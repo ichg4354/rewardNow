@@ -40,7 +40,6 @@ const App = () => {
   useEffect(
     () =>
       authService.onAuthStateChanged((user) => {
-        console.log(user);
         if (user) {
           setLoggedIn(true);
           setUser(user);

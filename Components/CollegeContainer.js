@@ -25,7 +25,6 @@ const CollegeContainer = ({ userId, loggedIn, searchQuery }) => {
           id: each.id,
         })
       );
-      console.log("empty");
     } else {
       data = await storeService
         .collection("colleges")

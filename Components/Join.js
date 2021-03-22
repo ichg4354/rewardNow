@@ -63,7 +63,6 @@ const Join = ({ navigation }) => {
                   email,
                   password
                 );
-                console.log(data.user.uid);
                 createUserData(data.user.uid);
                 navigation.navigate("Home");
               } else {
@@ -88,7 +87,6 @@ const Join = ({ navigation }) => {
   };
 
   const createUserData = async (userId) => {
-    console.log(userId);
     await storeService.collection("users").doc(userId).set({
       userId: userId,
       name: name,

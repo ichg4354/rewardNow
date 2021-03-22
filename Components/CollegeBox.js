@@ -64,7 +64,6 @@ const CollegeBox = ({
 
   const onCollegeLikeBtnClick = async () => {
     if (loggedIn) {
-      console.log(collegeId);
       try {
         if (likedCollege.includes(collegeId)) {
           alert("좋아요 취소");
