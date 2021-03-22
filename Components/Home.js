@@ -11,15 +11,15 @@ const HomeScrollView = styled.ScrollView`
 `;
 const HomeHeader = styled.Text`
   font-size: 35px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   font-weight: bold;
   color: black;
 `;
 
 const HomeSearchTextInput = styled.TextInput`
   padding: 10px;
-  border: 1px solid gray;
-  border-radius: 15px;
+  border: 2px solid lightblue;
+  border-radius: 10px;
 `;
 const Home = ({ user, loggedIn }) => {
   const [searchQuery, setSearchQuery] = useState("");

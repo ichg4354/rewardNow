@@ -7,14 +7,13 @@ import styled from "styled-components/native";
 
 const JoinContainer = styled.View`
   justify-content: center;
-  margin-top: 50px;
   padding: 30px;
 `;
 
 const JoinTextInput = styled.TextInput`
   padding: 15px;
-  border: 1px solid lightblue;
-  border-radius: 15px;
+  border: 2px solid lightblue;
+  border-radius: 10px;
   margin-bottom: 15px;
 `;
 
@@ -26,7 +25,7 @@ const JoinButton = styled.TouchableOpacity`
   opacity: 15;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 
 const LoginButton = styled.TouchableOpacity`

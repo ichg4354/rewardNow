@@ -10,8 +10,10 @@ const CollegeBoxContainer = styled.View`
   justify-content: center;
   border-radius: 10px;
   padding: 15px 20px;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: rgba(31, 38, 135, 0.37) 0 8px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 
 const Title = styled.Text`
