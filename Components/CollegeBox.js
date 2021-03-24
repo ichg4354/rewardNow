@@ -64,56 +64,64 @@ const CollegeBox = ({
 
   const onCollegeLikeBtnClick = async () => {
     if (loggedIn) {
-      try {
-        if (likedCollege.includes(collegeId)) {
-          alert("좋아요 취소");
-          //1. 대학db에 좋아요 -1
-          await storeService
-            .collection("colleges")
-            .doc(collegeId)
-            .update({ likes: likes - 1 });
-          //2. user db에서 대학 id 빼기
-          await storeService
-            .collection("users")
-            .doc(userId)
-            .update({
-              likedCollege: ArrayTool.arrayRemove(collegeId),
-            });
-          //3.대학 db에 내 id 빼기 (부차적)
-          await storeService
-            .collection("colleges")
-            .doc(collegeId)
-            .update({
-              likedUser: ArrayTool.arrayRemove(userId),
-            });
-        } else {
-          alert("좋아요 완료!");
-          //1. 대학db에 좋아요 + 1
-          await storeService
-            .collection("colleges")
-            .doc(collegeId)
-            .update({ likes: likes + 1 });
-          //2. user db에 대학id 넣기
-          await storeService
-            .collection("users")
-            .doc(userId)
-            .update({
-              likedCollege: ArrayTool.arrayUnion(collegeId),
-            });
-          //3. 대학 db에 내 id 넣기 (부차적)
-          await storeService
-            .collection("colleges")
-            .doc(collegeId)
-            .update({
-              likedUser: ArrayTool.arrayUnion(userId),
-            });
+      const collegeName = await (
+        await storeService.collection("users").doc(userId).get()
+      ).data().college;
+      if (true) {
+        console.log(collegeName);
+        try {
+          if (likedCollege.includes(collegeId)) {
+            alert("좋아요 취소");
+            //1. 대학db에 좋아요 -1
+            await storeService
+              .collection("colleges")
+              .doc(collegeId)
+              .update({ likes: likes - 1 });
+            //2. user db에서 대학 id 빼기
+            await storeService
+              .collection("users")
+              .doc(userId)
+              .update({
+                likedCollege: ArrayTool.arrayRemove(collegeId),
+              });
+            //3.대학 db에 내 id 빼기 (부차적)
+            await storeService
+              .collection("colleges")
+              .doc(collegeId)
+              .update({
+                likedUser: ArrayTool.arrayRemove(userId),
+              });
+          } else {
+            alert("좋아요 완료!");
+            //1. 대학db에 좋아요 + 1
+            await storeService
+              .collection("colleges")
+              .doc(collegeId)
+              .update({ likes: likes + 1 });
+            //2. user db에 대학id 넣기
+            await storeService
+              .collection("users")
+              .doc(userId)
+              .update({
+                likedCollege: ArrayTool.arrayUnion(collegeId),
+              });
+            //3. 대학 db에 내 id 넣기 (부차적)
+            await storeService
+              .collection("colleges")
+              .doc(collegeId)
+              .update({
+                likedUser: ArrayTool.arrayUnion(userId),
+              });
+          }
+          setLikedEvent(["blah"]);
+        } catch (error) {
+          console.log(error);
         }
-        setLikedEvent(["blah"]);
-      } catch (error) {
-        console.log(error);
+      } else {
+        navigation.navigate("Join");
       }
     } else {
-      navigation.navigate("Join");
+      alert("NOT YOUR GROUP");
     }
 
     //내 user db속 liked list 에서 대학id가 없으면
