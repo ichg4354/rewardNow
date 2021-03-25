@@ -118,10 +118,10 @@ const CollegeBox = ({
           console.log(error);
         }
       } else {
-        navigation.navigate("Join");
+        alert("NOT YOUR GROUP");
       }
     } else {
-      alert("NOT YOUR GROUP");
+      navigation.navigate("Join");
     }
 
     //내 user db속 liked list 에서 대학id가 없으면
