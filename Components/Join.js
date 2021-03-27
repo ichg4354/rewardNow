@@ -41,7 +41,7 @@ const LoginButton = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  color: gray;
+  color: white;
   font-weight: bold;
 `;
 
@@ -104,21 +104,6 @@ const Join = ({ navigation }) => {
     setPassword2("");
   };
 
-  const fakeItems = [
-    {
-      label: "USA",
-      value: "usa",
-      hidden: true,
-    },
-    {
-      label: "UK",
-      value: "uk",
-    },
-    {
-      label: "France",
-      value: "france",
-    },
-  ];
   return (
     <JoinContainer>
       <JoinTextInput
@@ -174,10 +159,10 @@ const Join = ({ navigation }) => {
         required={true}
       />
       <JoinButton onPress={onJoinBtnPress}>
-        <ButtonText>Join</ButtonText>
+        <ButtonText>가입하기</ButtonText>
       </JoinButton>
-      <LoginButton onPress={() => navigation.navigate("Login")}>
-        <ButtonText>Do you have a account?</ButtonText>
+      <LoginButton onPress={() => navigation.navigate("로그인")}>
+        <ButtonText>이미 계정이 있나요?</ButtonText>
       </LoginButton>
     </JoinContainer>
   );

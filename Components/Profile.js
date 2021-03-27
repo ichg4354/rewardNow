@@ -7,7 +7,7 @@ import styled from "styled-components/native";
 const ProfileContainer = styled.View`
   padding: 30px;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 35vh;
 `;
 
 const ProfileButton = styled.TouchableOpacity`
