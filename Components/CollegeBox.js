@@ -68,8 +68,8 @@ const CollegeBox = ({
         await storeService.collection("users").doc(userId).get()
       ).data().college;
       if (userValue === college) {
-        console.log(college);
-        console.log(userValue);
+        // console.log(college);
+        // console.log(userValue);
         try {
           if (likedCollege.includes(collegeId)) {
             alert("좋아요 취소");
