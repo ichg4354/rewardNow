@@ -4,6 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
 import { authService, storeService } from "../fBase";
 import styled from "styled-components/native";
+import { collegeNames } from "../tools";
 
 const JoinContainer = styled.View`
   justify-content: center;
@@ -151,7 +152,12 @@ const Join = ({ navigation }) => {
         required={true}
       />
       <DropDownPicker
-        items={fakeItems}
+        items={collegeNames.map((each) => {
+          return {
+            label: each,
+            value: each,
+          };
+        })}
         defaultValue={college}
         containerStyle={{ height: 40 }}
         style={{
@@ -164,7 +170,7 @@ const Join = ({ navigation }) => {
         }}
         dropDownStyle={{ backgroundColor: "#fafafa" }}
         onChangeItem={(e) => setCollege(e.value)}
-        placeholder="대학 이름을 골라주세요~"
+        placeholder="단과대 이름을 골라주세요~"
         required={true}
       />
       <JoinButton onPress={onJoinBtnPress}>

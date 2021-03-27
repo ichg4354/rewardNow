@@ -64,11 +64,13 @@ const CollegeBox = ({
 
   const onCollegeLikeBtnClick = async () => {
     if (loggedIn) {
-      const collegeName = await (
+      const userValue = await (
         await storeService.collection("users").doc(userId).get()
       ).data().college;
       if (true) {
-        console.log(collegeName);
+        //userValue === college
+        console.log(college);
+        console.log(userValue);
         try {
           if (likedCollege.includes(collegeId)) {
             alert("좋아요 취소");
