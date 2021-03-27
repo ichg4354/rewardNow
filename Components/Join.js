@@ -161,7 +161,7 @@ const Join = ({ navigation }) => {
       <JoinButton onPress={onJoinBtnPress}>
         <ButtonText>가입하기</ButtonText>
       </JoinButton>
-      <LoginButton onPress={() => navigation.navigate("로그인")}>
+      <LoginButton onPress={() => navigation.navigate("Login")}>
         <ButtonText>이미 계정이 있나요?</ButtonText>
       </LoginButton>
     </JoinContainer>
