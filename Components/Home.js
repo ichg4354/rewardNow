@@ -35,7 +35,7 @@ const Home = ({ user, loggedIn }) => {
 
   return (
     <HomeScrollView>
-      <HomeHeader>Reward Now</HomeHeader>
+      <HomeHeader>Push and Get</HomeHeader>
       <HomeSearchTextInput
         placeholder={"검색하기"}
         required={true}
