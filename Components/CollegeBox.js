@@ -67,7 +67,7 @@ const CollegeBox = ({
       const userValue = await (
         await storeService.collection("users").doc(userId).get()
       ).data().college;
-      if (true) {
+      if ("융합전공" === college) {
         //userValue === college
         console.log(college);
         console.log(userValue);
@@ -120,7 +120,7 @@ const CollegeBox = ({
           console.log(error);
         }
       } else {
-        alert("NOT YOUR GROUP");
+        alert("회원가입 시 설정한 단과대가 아니에요ㅠ");
       }
     } else {
       navigation.navigate("Join");
