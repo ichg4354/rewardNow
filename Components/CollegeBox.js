@@ -67,8 +67,7 @@ const CollegeBox = ({
       const userValue = await (
         await storeService.collection("users").doc(userId).get()
       ).data().college;
-      if ("융합전공" === college) {
-        //userValue === college
+      if (userValue === college) {
         console.log(college);
         console.log(userValue);
         try {
