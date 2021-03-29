@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, PanResponder, Animated } from "react-native";
 import styled from "styled-components/native";
+import { disableBodyScroll } from "body-scroll-lock";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -15,6 +16,7 @@ const AboutUsContainer = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 const AboutUsHeader = styled.Text`
@@ -42,6 +44,11 @@ const AboutUs = () => {
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
   const nextCard = () => setTopIndex(TopIndex + 1);
+
+  const BODY = document.querySelector("body");
+
+  disableBodyScroll(BODY);
+
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: (ext, { dx, dy }) => {
