@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { View, Button } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { ArrayTool, storeService } from "../fBase";
+import { clearAllBodyScrollLocks } from "body-scroll-lock";
 
 const Detail = ({ route }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const collegeData = route.params;
+
+  const BODY = document.querySelector("body");
+
+  clearAllBodyScrollLocks(BODY);
 
   const onSendMsgBtnClick = async () => {
     await storeService

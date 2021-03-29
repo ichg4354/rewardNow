@@ -11,13 +11,14 @@ import { useNavigation } from "@react-navigation/core";
 const Tab = createBottomTabNavigator();
 
 export default ({ user, loggedIn }) => {
+
+
   const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Reward") {

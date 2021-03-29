@@ -37,3 +37,5 @@ const addData = async (bool) => {
     );
   }
 };
+
+export const BODY = document.querySelector("body");

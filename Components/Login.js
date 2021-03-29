@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, Button } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { authService } from "../fBase";
 import styled from "styled-components/native";
+import { useIsFocused } from "@react-navigation/core";
+import { disableBodyScroll } from "body-scroll-lock";
+import { BODY } from "../tools";
 
 const LoginContainer = styled.View`
   justify-content: center;
@@ -51,6 +54,10 @@ const Login = ({ navigation }) => {
       alert(error);
     }
   };
+  const isFocused = useIsFocused();
+  useEffect(() => {
+    disableBodyScroll(BODY);
+  }, [isFocused]);
 
   return (
     <LoginContainer>

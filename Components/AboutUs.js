@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, PanResponder, Animated } from "react-native";
 import styled from "styled-components/native";
+import { useIsFocused } from "@react-navigation/core";
 import { disableBodyScroll } from "body-scroll-lock";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
@@ -41,13 +42,12 @@ const DiscoveryPoster = styled.Image`
 `;
 
 const AboutUs = () => {
+  const isFocused = useIsFocused();
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
   const nextCard = () => setTopIndex(TopIndex + 1);
 
   const BODY = document.querySelector("body");
-
-  disableBodyScroll(BODY);
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -95,6 +95,9 @@ const AboutUs = () => {
     outputRange: [1, 0.8, 1],
     extrapolate: "clamp",
   });
+  useEffect(() => {
+    disableBodyScroll(BODY);
+  }, [isFocused]);
   return (
     <AboutUsContainer>
       <AboutUsHeader>About Us</AboutUsHeader>
