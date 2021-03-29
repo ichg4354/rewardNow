@@ -7,7 +7,14 @@ import styled from "styled-components/native";
 const ProfileContainer = styled.View`
   padding: 30px;
   justify-content: center;
-  margin-top: 35vh;
+`;
+
+const ProfileHeader = styled.Text`
+  font-size: 35px;
+  margin-bottom: 35px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 30vh;
 `;
 
 const ProfileButton = styled.TouchableOpacity`
@@ -36,7 +43,11 @@ const Profile = ({ user, loggedIn }) => {
 
   return (
     <ProfileContainer>
-      {loggedIn ? <Text>{user?.email}님 안녕하세요~</Text> : <></>}
+      {loggedIn ? (
+        <ProfileHeader>Profile</ProfileHeader>
+      ) : (
+        <ProfileHeader>Join or Log in</ProfileHeader>
+      )}
       {loggedIn ? (
         <></>
       ) : (
