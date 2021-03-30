@@ -4,7 +4,7 @@ import Home from "../Components/Home";
 import Profile from "../Components/Profile";
 import AboutUs from "../Components/AboutUs";
 import Reward from "../Components/Reward";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 import Join from "../Components/Join";
 
 const Tab = createBottomTabNavigator();
@@ -25,7 +25,7 @@ export default ({ user, loggedIn }) => {
             iconName = focused ? "business" : "business-outline";
           }
           // You can return any component that you like here!
-          return <Icon name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
       tabBarOptions={{
@@ -33,7 +33,6 @@ export default ({ user, loggedIn }) => {
         inactiveTintColor: "gray",
       }}
     >
-
       <Tab.Screen name="Home">
         {() => <Home user={user} loggedIn={loggedIn} />}
       </Tab.Screen>

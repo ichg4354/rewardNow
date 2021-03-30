@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, PanResponder, Animated } from "react-native";
+import { Dimensions, PanResponder, Animated, Linking } from "react-native";
 import styled from "styled-components/native";
 import { useIsFocused } from "@react-navigation/core";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import dotenv from "dotenv";
+import { Helmet } from "react-helmet";
+import { Ionicons } from "@expo/vector-icons";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -29,6 +31,8 @@ const AboutUsHeader = styled.Text`
   left: 30px;
   top: 30px;
 `;
+
+const SocialContainer = styled.View``;
 // const Card = styled.View`
 //   width: 100%;
 //   height: 100%;
@@ -47,7 +51,7 @@ const AboutUs = () => {
   dotenv.config();
 
   console.log(process.env.BROWSERSLIST);
-  
+
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
   const nextCard = () => setTopIndex(TopIndex + 1);
@@ -108,6 +112,15 @@ const AboutUs = () => {
   return (
     <AboutUsContainer class="AboutUsContainer">
       <AboutUsHeader>About Us</AboutUsHeader>
+      <SocialContainer>
+        <Ionicons
+          name="logo-instagram"
+          size={50}
+          onPress={() =>
+            Linking.openURL("https://www.instagram.com/pushandgetofficial/")
+          }
+        ></Ionicons>
+      </SocialContainer>
       <>
         {discover?.map((each, key) => {
           if (key < TopIndex) {
