@@ -5,7 +5,6 @@ import Profile from "../Components/Profile";
 import AboutUs from "../Components/AboutUs";
 import Reward from "../Components/Reward";
 import { Ionicons } from "@expo/vector-icons";
-import Join from "../Components/Join";
 
 const Tab = createBottomTabNavigator();
 
