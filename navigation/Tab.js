@@ -6,14 +6,10 @@ import AboutUs from "../Components/AboutUs";
 import Reward from "../Components/Reward";
 import Icon from "react-native-vector-icons/Ionicons";
 import Join from "../Components/Join";
-import { useNavigation } from "@react-navigation/core";
 
 const Tab = createBottomTabNavigator();
 
 export default ({ user, loggedIn }) => {
-
-
-  const navigation = useNavigation();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -37,6 +33,7 @@ export default ({ user, loggedIn }) => {
         inactiveTintColor: "gray",
       }}
     >
+
       <Tab.Screen name="Home">
         {() => <Home user={user} loggedIn={loggedIn} />}
       </Tab.Screen>

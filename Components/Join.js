@@ -4,9 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 import DropDownPicker from "react-native-dropdown-picker";
 import { authService, storeService } from "../fBase";
 import styled from "styled-components/native";
-import { BODY, collegeNames } from "../tools";
-import { useIsFocused } from "@react-navigation/core";
-import { disableBodyScroll } from "body-scroll-lock";
+import { collegeNames } from "../tools";
 
 const JoinContainer = styled.View`
   justify-content: center;
@@ -105,9 +103,6 @@ const Join = ({ navigation }) => {
     setPassword("");
     setPassword2("");
   };
-
-  const isFocused = useIsFocused();
-  useEffect(() => {disableBodyScroll(BODY)}, [isFocused]);
 
   return (
     <JoinContainer>

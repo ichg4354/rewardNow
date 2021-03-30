@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 import { authService } from "../fBase";
 import { Button, View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { useIsFocused } from "@react-navigation/core";
-import { BODY } from "../tools";
-import { disableBodyScroll } from "body-scroll-lock";
 
 const ProfileContainer = styled.View`
   padding: 30px;
@@ -38,17 +35,12 @@ const ButtonText = styled.Text`
 `;
 
 const Profile = ({ user, loggedIn }) => {
-  const isFocused = useIsFocused();
-
   const navigation = useNavigation();
 
   const onLogoutBtnClick = async () => {
     await authService.signOut();
   };
 
-  useEffect(() => {
-    disableBodyScroll(BODY);
-  }, [isFocused]);
   return (
     <ProfileContainer>
       {loggedIn ? (

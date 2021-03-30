@@ -5,8 +5,6 @@ import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { authService, storeService } from "../fBase";
 import CollegeContainer from "./CollegeContainer";
 import styled from "styled-components/native";
-import { useIsFocused } from "@react-navigation/core";
-import { clearAllBodyScrollLocks } from "body-scroll-lock";
 
 const HomeScrollView = styled.ScrollView`
   padding: 30px;
@@ -24,8 +22,6 @@ const HomeSearchTextInput = styled.TextInput`
   border-radius: 10px;
 `;
 const Home = ({ user, loggedIn }) => {
-  const isFocused = useIsFocused();
-  const BODY = document.querySelector("body");
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -37,10 +33,6 @@ const Home = ({ user, loggedIn }) => {
       setSearchQuery(text);
     }
   };
-
-  useEffect(() => {
-    clearAllBodyScrollLocks(BODY);
-  }, [isFocused]);
 
   return (
     <HomeScrollView>
