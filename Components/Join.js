@@ -107,31 +107,31 @@ const Join = ({ navigation }) => {
   return (
     <JoinContainer>
       <JoinTextInput
-        placeholder={"Name"}
+        placeholder={"이름"}
         onChange={(e) => setName(e.target.value)}
         value={name}
         required={true}
       />
       <JoinTextInput
-        placeholder={"Email"}
+        placeholder={"이메일"}
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         required={true}
       />
       <JoinTextInput
-        placeholder={"Password"}
+        placeholder={"비밀번호 (8자리 이상)"}
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         required={true}
       />
       <JoinTextInput
-        placeholder={"Password2"}
+        placeholder={"비밀번호 재확인"}
         onChange={(e) => setPassword2(e.target.value)}
         value={password2}
         required={true}
       />
       <JoinTextInput
-        placeholder={"PhoneNumber"}
+        placeholder={"전화번호 or 카카오톡 ID"}
         onChange={(e) => setPhoneNumber(e.target.value)}
         value={phoneNumber}
         required={true}

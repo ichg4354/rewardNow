@@ -3,6 +3,7 @@ import { Dimensions, PanResponder, Animated } from "react-native";
 import styled from "styled-components/native";
 import { useIsFocused } from "@react-navigation/core";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import dotenv from "dotenv";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -28,13 +29,14 @@ const AboutUsHeader = styled.Text`
   left: 30px;
   top: 30px;
 `;
-const Card = styled.View`
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
+// const Card = styled.View`
+//   width: 100%;
+//   height: 100%;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
+const DiscoveryContainer = styled.View``;
 const DiscoveryPoster = styled.Image`
   width: 90%;
   height: ${HEIGHT / 1.5}px;
@@ -42,6 +44,10 @@ const DiscoveryPoster = styled.Image`
 `;
 
 const AboutUs = () => {
+  dotenv.config();
+
+  console.log(process.env.BROWSERSLIST);
+  
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
   const nextCard = () => setTopIndex(TopIndex + 1);
