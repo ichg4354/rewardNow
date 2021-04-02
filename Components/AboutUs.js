@@ -10,9 +10,8 @@ import { Ionicons } from "@expo/vector-icons";
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const discover = [
-  "https://images.unsplash.com/photo-1616995837523-c2b478fc81a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2133&q=80",
-  "https://images.unsplash.com/photo-1616984855875-d0be5f06706a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80",
-  "https://images.unsplash.com/photo-1616983848157-cc0a7a59f825?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1936&q=80",
+  "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0d15c714-8741-4a9f-8719-a26afc0f3dac/-.-001_%283%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T132356Z&X-Amz-Expires=86400&X-Amz-Signature=df6d81c472d2efbece7a19971c70709933380a5edae1f0dc59d50317bff80d15&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22-.-001_%283%29.png%22",
+  "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9a21e3d5-324b-4591-91a8-123be4adcb17/-.-002_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T133819Z&X-Amz-Expires=86400&X-Amz-Signature=0d9a3eff8d18e0904fa281354a2abb4b44c33f77d003fdb76f6dbab5d8aa426b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22-.-002_%281%29.png%22",
 ];
 
 const AboutUsContainer = styled.View`
@@ -49,7 +48,6 @@ const DiscoveryPoster = styled.Image`
 
 const AboutUs = () => {
   dotenv.config();
-
 
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
