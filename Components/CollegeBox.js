@@ -98,7 +98,7 @@ const CollegeBox = ({
             await storeService
               .collection("colleges")
               .doc(collegeId)
-              .update({ likes: likes + 1 });
+              .update ({ likes: likes + 1 });
             //2. user db에 대학id 넣기
             await storeService
               .collection("users")

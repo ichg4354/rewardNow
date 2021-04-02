@@ -50,7 +50,6 @@ const DiscoveryPoster = styled.Image`
 const AboutUs = () => {
   dotenv.config();
 
-  console.log(process.env.BROWSERSLIST);
 
   const [TopIndex, setTopIndex] = useState(0);
   const position = new Animated.ValueXY();
