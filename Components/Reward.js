@@ -33,6 +33,11 @@ const RewardRankItemText = styled.Text`
   color: gray;
 `;
 
+const RewardImage = styled.View`
+  margin-top: 30px;
+  border-radius: 30px;
+`;
+
 const Reward = () => {
   const [collegeRank, setCollegeRank] = useState([]);
 
@@ -78,6 +83,12 @@ const Reward = () => {
           </RewardRankItemText>
         </RewardRankItem>
       </RewardRankContainer>
+      <RewardImage>
+        <img
+          src="https://i.ibb.co/vVY7zn7/001-5.png"
+          style={{ borderRadius: "15px" }}
+        />
+      </RewardImage>
     </RewardContainer>
   );
 };
