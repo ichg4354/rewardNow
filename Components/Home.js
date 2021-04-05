@@ -22,7 +22,6 @@ const HomeSearchTextInput = styled.TextInput`
   border-radius: 10px;
 `;
 const Home = ({ user, loggedIn }) => {
-
   const [searchQuery, setSearchQuery] = useState("");
 
   const onSearchInputChange = (text) => {
@@ -38,7 +37,7 @@ const Home = ({ user, loggedIn }) => {
     <HomeScrollView>
       <HomeHeader>Push & Get</HomeHeader>
       <HomeSearchTextInput
-        placeholder={"검색하기"}
+        placeholder={"검색하기 (정확한 단과대 이름을 적어주세요~)"}
         required={true}
         value={searchQuery}
         onChange={(e) => onSearchInputChange(e.target.value)}
