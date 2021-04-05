@@ -9,9 +9,12 @@ import { Ionicons } from "@expo/vector-icons";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
+// https://ibb.co/n8hRtck
+// https://ibb.co/XsGrC1J
+
 const discover = [
-  "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0d15c714-8741-4a9f-8719-a26afc0f3dac/-.-001_%283%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T132356Z&X-Amz-Expires=86400&X-Amz-Signature=df6d81c472d2efbece7a19971c70709933380a5edae1f0dc59d50317bff80d15&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22-.-001_%283%29.png%22",
-  "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9a21e3d5-324b-4591-91a8-123be4adcb17/-.-002_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T133819Z&X-Amz-Expires=86400&X-Amz-Signature=0d9a3eff8d18e0904fa281354a2abb4b44c33f77d003fdb76f6dbab5d8aa426b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22-.-002_%281%29.png%22",
+  "https://i.ibb.co/zHKNDRf/001.png",
+  "https://i.ibb.co/hWTJmb8/002.png",
 ];
 
 const AboutUsContainer = styled.View`
