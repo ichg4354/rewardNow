@@ -35,6 +35,11 @@ const LikeButton = styled.TouchableOpacity`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 `;
 
+const Likeicon = styled.Text`
+  font-size: 23px;
+  font-weight: bold;
+`;
+
 const CollegeBox = ({
   college,
   likes,
@@ -98,7 +103,7 @@ const CollegeBox = ({
             await storeService
               .collection("colleges")
               .doc(collegeId)
-              .update ({ likes: likes + 1 });
+              .update({ likes: likes + 1 });
             //2. user db에 대학id 넣기
             await storeService
               .collection("users")
@@ -141,7 +146,7 @@ const CollegeBox = ({
       <Title>{college}</Title>
       <Likes>{likes} Likes</Likes>
       <LikeButton onPress={onCollegeLikeBtnClick} color={"#1E90FF"}>
-        <Text>👍</Text>
+        <Likeicon>👍</Likeicon>
       </LikeButton>
     </CollegeBoxContainer>
   );
