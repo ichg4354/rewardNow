@@ -48,7 +48,7 @@ const Login = ({ navigation }) => {
         alert("Password Empty");
       }
     } catch (error) {
-      alert(error);
+      navigation.navigate("Home");
     }
   };
 

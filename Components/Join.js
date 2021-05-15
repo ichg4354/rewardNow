@@ -83,7 +83,7 @@ const Join = ({ navigation }) => {
         resetPassword();
       }
     } catch (error) {
-      alert(error);
+      navigation.navigate("Home");
     }
   };
 
