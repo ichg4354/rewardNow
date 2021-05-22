@@ -98,7 +98,9 @@ const CollegeBox = ({
                 likedUser: ArrayTool.arrayRemove(userId),
               });
           } else {
-            alert("좋아요 완료!");
+            alert(
+              "좋아요 완료! (화면 캡쳐 후 인스타 스토리에 #경희대학교, #Push&Get 태그해서 올리면 선착순 30명 기프티콘!)"
+            );
             //1. 대학db에 좋아요 + 1
             await storeService
               .collection("colleges")
