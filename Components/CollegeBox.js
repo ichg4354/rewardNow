@@ -21,6 +21,8 @@ const Title = styled.Text`
   margin-bottom: 5px;
 `;
 
+const SchoolLogo = styled.View``;
+
 const Likes = styled.Text`
   font-size: 20px;
   margin-bottom: 10px;
@@ -145,7 +147,23 @@ const CollegeBox = ({
 
   return (
     <CollegeBoxContainer>
-      <Title>{college}</Title>
+      <Title>
+        {college}
+        <SchoolLogo>
+          <img
+            src="https://i.ibb.co/8sBg7qn/removebg-preview.png"
+            style={{
+              marginLeft: "10px",
+              borderRadius: "15px",
+              width: "30px",
+              height: "30px",
+              position: "relative",
+              top: "5px",
+            }}
+          />
+        </SchoolLogo>
+      </Title>
+      <SchoolLogo></SchoolLogo>
       <Likes>{likes} Likes</Likes>
       <LikeButton onPress={onCollegeLikeBtnClick} color={"#1E90FF"}>
         <Likeicon>👍</Likeicon>
