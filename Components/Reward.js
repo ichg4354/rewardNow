@@ -69,7 +69,21 @@ const Reward = () => {
 
   return (
     <RewardContainer>
-      <RewardHeader>Reward</RewardHeader>
+      <RewardHeader>
+        Reward
+        <img
+          src="https://i.ibb.co/8sBg7qn/removebg-preview.png"
+          style={{
+            marginLeft: "10px",
+            borderRadius: "15px",
+            width: "30px",
+            height: "30px",
+            position: "relative",
+            top: "5px",
+          }}
+        />
+      </RewardHeader>
+
       <RewardRankContainer>
         <RewardRankItem>
           <RewardRankItemText>
