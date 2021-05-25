@@ -85,7 +85,7 @@ const Reward = () => {
       </RewardRankContainer>
       <RewardImage>
         <img
-          src="https://i.ibb.co/vVY7zn7/001-5.png"
+          src="https://i.ibb.co/47q25g9/1.png"
           style={{ borderRadius: "15px" }}
         />
       </RewardImage>
