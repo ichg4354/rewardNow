@@ -101,7 +101,7 @@ const CollegeBox = ({
               });
           } else {
             alert(
-              "좋아요 완료! 선착순 30명 기프티콘 제공[  1.@pushandgetofficial 인스타 팔로우   2.Home 화면 스크린샷 후 @pushandgetofficial 언급해서 인스타 스토리 올리기]"
+              "좋아요 완료! 선착순 30명 기프티콘 제공[  1.@pushandgetofficial 인스타 팔로우   2.Reward 화면 스크린샷 후 @pushandgetofficial 언급해서 인스타 스토리 올리기]"
             );
             //1. 대학db에 좋아요 + 1
             await storeService
