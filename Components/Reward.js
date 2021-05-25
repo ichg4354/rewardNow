@@ -99,7 +99,7 @@ const Reward = () => {
       </RewardRankContainer>
       <RewardImage>
         <img
-          src="https://i.ibb.co/47q25g9/1.png"
+          src="https://i.ibb.co/gymX6DP/image.png"
           style={{ borderRadius: "15px" }}
         />
       </RewardImage>
